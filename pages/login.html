@@ -24,14 +24,12 @@
       <i style="color:rgb(219, 171, 59) ;" class="fas fa-eye"></i> 
       <br>
       <br>
-      <a href="ranklist.html"> <button type="button">LOGIN</button></a>
+      <a href="#"> <button type="button" onclick="login()">LOGIN</button></a>
       <p></p>
     </form>
 
 
-    <form class="login-form">
-     <a href="/pages/ranklist.html"><button type="button">SIGN UP</button></a> 
-    </form>
+  
 
   </div>
 </div>
@@ -40,12 +38,34 @@
 
 <script>
 
-let user_name = document.getElementById("name").value
-let password = document.getElementById("password").value
+function login() {
+            let name = document.getElementById("name").value
+            let password = document.getElementById("password").value
+            let arr = JSON.parse(localStorage.getItem("array"))
 
+          
+let res;
+            arr.find(element => {
 
+                if (element["name"] == name && element["password"]== password) {
+                    return res=1  ;
+                    
+                }
+                else {
+                    return res=0;
+                    
+                }
+            });
+            if(res==1){
+    
+    alert("Logged in")
+    window.location.href="../pages/ranklist.html"
+}
 
-
+else{
+    alert("none")
+}
+}
 
 </script>
 </body>
