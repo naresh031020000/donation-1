@@ -25,7 +25,6 @@
       <br>
       <br>
       <a href="#"> <button type="button" onclick="login()">LOGIN</button></a>
-      <p></p>
     </form>
 
 
@@ -39,9 +38,17 @@
 <script>
 
 function login() {
+
+
+
+
             let name = document.getElementById("name").value
             let password = document.getElementById("password").value
             let arr = JSON.parse(localStorage.getItem("array"))
+            
+            
+            
+
 
           
 let res;
@@ -56,16 +63,23 @@ let res;
                     
                 }
             });
-            if(res==1){
-    
+
+     if(res==1){
+    let profile_name = name;
+
+    localStorage.setItem("profile_name", profile_name);
+
     alert("Logged in")
-    window.location.href="../pages/ranklist.html"
+    
+    window.location.href="../pages/userprofile.html"
 }
 
 else{
     alert("none")
 }
 }
+
+
 
 </script>
 </body>
